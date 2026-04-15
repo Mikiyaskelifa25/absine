@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import EthiopianPatternBg from "@/components/EthiopianPatternBg";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Aventure en Abyssinie",
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -21,8 +22,15 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased relative">
-        <EthiopianPatternBg />
-        <div className="relative z-10">{children}</div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <EthiopianPatternBg />
+          <div className="relative z-10">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

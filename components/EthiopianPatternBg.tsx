@@ -1,8 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function EthiopianPatternBg() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Higher opacity in light mode to make patterns visible against light background
+  const baseOpacity = mounted && resolvedTheme === "light" ? 0.25 : 0.12;
+
   return (
     <div
       aria-hidden="true"
@@ -10,7 +22,7 @@ export default function EthiopianPatternBg() {
     >
       <motion.div 
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.12 }}
+        animate={{ opacity: baseOpacity }}
         transition={{ duration: 2, ease: "easeOut" }}
         className="absolute inset-0"
       >
@@ -34,12 +46,12 @@ export default function EthiopianPatternBg() {
                   ease: "easeInOut" 
                 }}
               >
-                <polygon points="40,5 75,40 40,75 5,40" fill="none" stroke="#ecbe8d" strokeWidth="1.5"/>
-                <polygon points="40,20 60,40 40,60 20,40" fill="none" stroke="#ecbe8d" strokeWidth="0.8" opacity="0.6"/>
-                <circle cx="40" cy="5"  r="2" fill="#ecbe8d"/>
-                <circle cx="75" cy="40" r="2" fill="#ecbe8d"/>
-                <circle cx="40" cy="75" r="2" fill="#ecbe8d"/>
-                <circle cx="5"  cy="40" r="2" fill="#ecbe8d"/>
+                <polygon points="40,5 75,40 40,75 5,40" fill="none" stroke="var(--pattern-color)" strokeWidth="1.5"/>
+                <polygon points="40,20 60,40 40,60 20,40" fill="none" stroke="var(--pattern-color)" strokeWidth="0.8" opacity="0.6"/>
+                <circle cx="40" cy="5"  r="2" fill="var(--pattern-color)"/>
+                <circle cx="75" cy="40" r="2" fill="var(--pattern-color)"/>
+                <circle cx="40" cy="75" r="2" fill="var(--pattern-color)"/>
+                <circle cx="5"  cy="40" r="2" fill="var(--pattern-color)"/>
               </motion.g>
             </pattern>
 
@@ -55,10 +67,10 @@ export default function EthiopianPatternBg() {
                   ease: "easeInOut" 
                 }}
               >
-                <polygon points="30,5 55,18 55,42 30,55 5,42 5,18" fill="none" stroke="#ecbe8d" strokeWidth="1.2"/>
-                <circle cx="30" cy="30" r="3" fill="#ecbe8d" opacity="0.8"/>
-                <line x1="30" y1="5" x2="30" y2="15" stroke="#ecbe8d" strokeWidth="0.8"/>
-                <line x1="30" y1="55" x2="30" y2="45" stroke="#ecbe8d" strokeWidth="0.8"/>
+                <polygon points="30,5 55,18 55,42 30,55 5,42 5,18" fill="none" stroke="var(--pattern-color)" strokeWidth="1.2"/>
+                <circle cx="30" cy="30" r="3" fill="var(--pattern-color)" opacity="0.8"/>
+                <line x1="30" y1="5" x2="30" y2="15" stroke="var(--pattern-color)" strokeWidth="0.8"/>
+                <line x1="30" y1="55" x2="30" y2="45" stroke="var(--pattern-color)" strokeWidth="0.8"/>
               </motion.g>
             </pattern>
 
@@ -67,16 +79,16 @@ export default function EthiopianPatternBg() {
               <path 
                 d="M50 5 L62 25 L85 30 L68 48 L75 72 L50 60 L25 72 L32 48 L15 30 L38 25 Z" 
                 fill="none" 
-                stroke="#ecbe8d" 
+                stroke="var(--pattern-color)" 
                 strokeWidth="2.5"
               />
-              <circle cx="50" cy="45" r="10" fill="none" stroke="#ecbe8d" strokeWidth="2"/>
-              <path d="M50 15 V75 M25 45 H75" stroke="#ecbe8d" strokeWidth="1.5"/>
+              <circle cx="50" cy="45" r="10" fill="none" stroke="var(--pattern-color)" strokeWidth="2"/>
+              <path d="M50 15 V75 M25 45 H75" stroke="var(--pattern-color)" strokeWidth="1.5"/>
             </symbol>
 
             <radialGradient id="vignette" cx="50%" cy="50%" r="80%">
               <stop offset="0%" stopColor="transparent" />
-              <stop offset="100%" stopColor="#131313" stopOpacity="0.95" />
+              <stop offset="100%" className="vignette-stop" stopOpacity="0.95" />
             </radialGradient>
           </defs>
 

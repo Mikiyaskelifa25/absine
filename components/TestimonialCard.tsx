@@ -21,7 +21,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
 
   return (
     <AnimateOnScroll animation="fade-up" delay={index * 0.1}>
-      <div className="bg-stone-900/40 backdrop-blur-sm border border-white/5 rounded-3xl p-8 flex flex-col group hover:bg-stone-900/60 transition-all duration-500 hover:border-primary/20">
+      <div className="bg-white/60 dark:bg-stone-900/40 backdrop-blur-md border border-outline dark:border-white/5 rounded-3xl p-8 flex flex-col group hover:bg-white/80 dark:hover:bg-stone-900/60 transition-all duration-500 hover:border-primary/50 dark:hover:border-primary/20 shadow-glass hover:shadow-premium">
         {/* Quote Icon */}
         <div className="mb-6 text-primary/40 group-hover:text-primary transition-colors duration-500">
           <span className="material-symbols-outlined text-4xl">format_quote</span>
@@ -29,7 +29,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
 
         {/* Quote Content */}
         <blockquote className="flex-grow">
-          <p className="text-[#e5e2e1]/90 text-lg leading-relaxed italic mb-4">
+          <p className="text-stone-700 dark:text-on-surface/90 text-lg leading-relaxed italic mb-4">
             "{displayedQuote}"
           </p>
           {isLong && (
@@ -48,7 +48,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
             <span
               key={i}
               className={`material-symbols-outlined text-sm ${
-                i < testimonial.rating ? "text-primary fill-1" : "text-white/10"
+                i < testimonial.rating ? "text-primary fill-1" : "text-stone-300 dark:text-on-surface/10"
               }`}
               style={{ fontVariationSettings: i < testimonial.rating ? "'FILL' 1" : "'FILL' 0" }}
             >
@@ -58,7 +58,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
         </div>
 
         {/* Author Info */}
-        <div className="flex items-center gap-4 border-t border-white/5 pt-6">
+        <div className="flex items-center gap-4 border-t border-stone-100 dark:border-white/5 pt-6">
           {testimonial.image ? (
             <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
               <Image
@@ -69,24 +69,24 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
               />
             </div>
           ) : (
-            <div className="w-12 h-12 rounded-full bg-stone-800 flex items-center justify-center text-primary font-bold text-lg border-2 border-primary/20">
+            <div className="w-12 h-12 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-primary font-bold text-lg border-2 border-primary/20">
               {testimonial.name.charAt(0)}
             </div>
           )}
           <div>
-            <h4 className="text-[#e5e2e1] font-headline font-bold text-base leading-tight">
+            <h4 className="text-stone-900 dark:text-on-surface font-headline font-bold text-base leading-tight">
               {testimonial.name}
             </h4>
-            <p className="text-[#e5e2e1]/50 text-xs font-label uppercase tracking-widest mt-1">
+            <p className="text-stone-500 dark:text-on-surface/50 text-xs font-label uppercase tracking-widest mt-1">
               {testimonial.location}
             </p>
           </div>
         </div>
 
         {/* Trip Badge */}
-        <div className="mt-4 inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/5 border border-white/5 self-start">
+        <div className="mt-4 inline-flex items-center gap-2 py-1 px-3 rounded-full bg-stone-100/80 dark:bg-white/5 border border-outline dark:border-white/5 self-start">
           <span className="material-symbols-outlined text-[10px] text-primary">explore</span>
-          <span className="text-[10px] text-[#e5e2e1]/40 font-label uppercase tracking-wider">
+          <span className="text-[10px] text-stone-500 dark:text-on-surface/40 font-label uppercase tracking-wider">
             {testimonial.tripTitle}
           </span>
         </div>

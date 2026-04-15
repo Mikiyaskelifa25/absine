@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function TopNavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,14 +45,16 @@ export default function TopNavBar() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 px-5 md:px-12 py-4 md:py-5 flex justify-between items-center ${
           isScrolled || menuOpen
-            ? "bg-stone-950/90 backdrop-blur-xl border-b border-white/5"
+            ? "bg-white/80 dark:bg-stone-950/90 backdrop-blur-xl border-b border-stone-200/50 dark:border-white/5 shadow-sm dark:shadow-none"
             : "bg-transparent"
         }`}
       >
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg md:text-xl font-bold font-headline text-[#e5e2e1] tracking-tighter uppercase hover:opacity-80 transition-opacity shrink-0"
+          className={`text-lg md:text-xl font-bold font-headline tracking-tighter uppercase hover:opacity-80 transition-all shrink-0 ${
+            isScrolled || menuOpen ? "text-stone-900 dark:text-[#e5e2e1]" : "text-[#e5e2e1]"
+          }`}
         >
           Aventure en Abyssinie
         </Link>
@@ -61,7 +64,9 @@ export default function TopNavBar() {
           {navLinks.map((link) => (
             <Link
               key={link.label}
-              className="text-[#e5e2e1] hover:text-[#ecbe8d] transition-colors text-sm"
+              className={`hover:text-[#ecbe8d] transition-colors text-sm ${
+                isScrolled || menuOpen ? "text-stone-900 dark:text-[#e5e2e1]" : "text-[#e5e2e1]"
+              }`}
               href={link.href}
             >
               {link.label}
@@ -70,7 +75,10 @@ export default function TopNavBar() {
         </div>
 
         {/* Desktop Right */}
-        <div className="hidden md:flex items-center gap-5 text-[#e5e2e1]">
+        <div className={`hidden md:flex items-center gap-5 ${
+          isScrolled || menuOpen ? "text-stone-900 dark:text-[#e5e2e1]" : "text-[#e5e2e1]"
+        }`}>
+          <ThemeToggle />
           <a
             href="tel:+251911603027"
             className="hidden lg:flex items-center gap-2 font-label text-xs tracking-widest hover:text-[#ecbe8d] transition-all"
@@ -87,15 +95,20 @@ export default function TopNavBar() {
         </div>
 
         {/* Mobile: hamburger */}
-        <button
-          className="md:hidden text-[#e5e2e1] w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <span className="material-symbols-outlined text-2xl">
-            {menuOpen ? "close" : "menu"}
-          </span>
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            className={`w-10 h-10 flex items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-colors ${
+              isScrolled || menuOpen ? "text-stone-900 dark:text-[#e5e2e1]" : "text-[#e5e2e1]"
+            }`}
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {menuOpen ? "close" : "menu"}
+            </span>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Drawer */}
@@ -111,7 +124,7 @@ export default function TopNavBar() {
         />
         {/* Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 bg-stone-950/95 border-l border-white/10 pt-20 px-8 flex flex-col gap-2 transition-transform duration-300 ${
+          className={`absolute top-0 right-0 h-full w-72 bg-white dark:bg-stone-950 border-l border-black/10 dark:border-white/10 pt-20 px-8 flex flex-col gap-2 transition-transform duration-300 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -120,14 +133,14 @@ export default function TopNavBar() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="py-4 text-[#e5e2e1] font-headline text-xl border-b border-white/10 hover:text-[#ecbe8d] transition-colors"
+              className="py-4 text-stone-900 dark:text-[#e5e2e1] font-headline text-xl border-b border-black/10 dark:border-white/10 hover:text-[#ecbe8d] transition-colors"
             >
               {link.label}
             </Link>
           ))}
           <a
             href="tel:+251911603027"
-            className="mt-6 flex items-center gap-3 text-[#e5e2e1] hover:text-[#ecbe8d] text-sm font-label"
+            className="mt-6 flex items-center gap-3 text-stone-900 dark:text-[#e5e2e1] hover:text-[#ecbe8d] text-sm font-label"
           >
             <span className="material-symbols-outlined text-lg text-primary">phone</span>
             +251 91 160 3027

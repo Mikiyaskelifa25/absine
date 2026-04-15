@@ -1,18 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #131313;
-  --foreground: #e5e2e1;
+  --background: #fdfcfb;
+  --foreground: #1c1917;
+  --primary: #d97706; /* slightly deeper amber for better light mode contrast */
+  --on-primary: #ffffff;
+  --surface: #ffffff;
+  --on-surface: #1c1917;
+  --surface-variant: #f5f2f0;
+  --on-surface-variant: #57534e; 
+  --outline: #e7e5e4;
+  --pattern-color: #a8a29e;
+}
+
+.dark {
+  --background: #0c0a09;
+  --foreground: #e7e5e4;
+  --primary: #ecbe8d;
+  --on-primary: #0c0a09;
+  --surface: #1c1917;
+  --on-surface: #e7e5e4;
+  --surface-variant: #292524;
+  --on-surface-variant: #d6d3d1;
+  --outline: #44403c;
+  --pattern-color: #ecbe8d;
 }
 
 @theme inline {
   --font-headline: "Noto Serif", serif;
   --font-body: "Manrope", sans-serif;
   --font-label: "Manrope", sans-serif;
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --shadow-premium: 0 20px 50px -12px rgba(28, 25, 23, 0.12);
+  --shadow-glass: 0 8px 32px 0 rgba(28, 25, 23, 0.08);
 }
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,6 +51,7 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
   width: 100%;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .material-symbols-outlined {
@@ -29,10 +61,28 @@ body {
 .hero-gradient {
   background: linear-gradient(
     180deg,
-    rgba(19, 19, 19, 0.4) 0%,
-    rgba(19, 19, 19, 0) 40%,
-    rgba(19, 19, 19, 0.8) 100%
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(253, 252, 251, 0.85) 90%,
+    rgba(253, 252, 251, 1) 100%
   );
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 9, 0.5) 0%,
+    rgba(12, 10, 9, 0) 35%,
+    rgba(12, 10, 9, 0) 65%,
+    rgba(12, 10, 9, 0.8) 90%,
+    rgba(12, 10, 9, 1) 100%
+  );
+}
+
+.vignette-stop {
+  stop-color: var(--background);
+  transition: stop-color 0.5s ease;
 }
 
 @utility no-scrollbar {

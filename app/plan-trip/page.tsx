@@ -61,11 +61,11 @@ export default function PlanTripPage() {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/5">
                   <span className="material-symbols-outlined text-primary">verified</span>
                   <p className="text-sm">Expertly curated by local specialists</p>
                 </div>
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/5">
                   <span className="material-symbols-outlined text-primary">schedule</span>
                   <p className="text-sm">Response within 24 hours</p>
                 </div>
@@ -75,7 +75,7 @@ export default function PlanTripPage() {
 
           {/* Right Column: Form */}
           <AnimateOnScroll animation="fade-left" delay={0.2}>
-            <div className="bg-[#1a1a1a] rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-white/10">
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-outline dark:border-white/10 transition-colors">
               <form onSubmit={handleSubmit} className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function PlanTripPage() {
                     <input
                       type="text" required value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none transition-all"
+                      className="w-full bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none transition-all"
                       placeholder="Your name"
                     />
                   </div>
@@ -92,7 +92,7 @@ export default function PlanTripPage() {
                     <input
                       type="email" required value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none transition-all"
+                      className="w-full bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none transition-all"
                       placeholder="email@example.com"
                     />
                   </div>
@@ -101,13 +101,13 @@ export default function PlanTripPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-widest text-on-surface/40">Travelers</label>
-                    <select 
+                    <select
                       value={formState.travelers}
                       onChange={(e) => setFormState({...formState, travelers: e.target.value})}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none appearance-none"
+                      className="w-full bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none appearance-none"
                     >
                       {[1,2,3,4,5,6,7,8,9, "10+"].map(n => (
-                        <option key={n} value={n} className="bg-stone-900">{n} {n === 1 ? 'Person' : 'People'}</option>
+                        <option key={n} value={n} className="bg-white dark:bg-stone-900 text-stone-900 dark:text-white">{n} {n === 1 ? 'Person' : 'People'}</option>
                       ))}
                     </select>
                   </div>
@@ -119,9 +119,9 @@ export default function PlanTripPage() {
                           key={type} type="button"
                           onClick={() => setFormState({...formState, selectedType: type})}
                           className={`px-3 py-1.5 rounded-full text-[9px] uppercase tracking-widest border transition-all ${
-                            formState.selectedType === type 
-                              ? "bg-primary border-primary text-on-primary font-bold" 
-                              : "bg-white/5 border-white/10 text-on-surface/60 hover:bg-white/10"
+                            formState.selectedType === type
+                              ? "bg-primary border-primary text-on-primary font-bold"
+                              : "bg-stone-50/80 dark:bg-white/5 border-outline dark:border-white/10 text-on-surface/60 hover:bg-stone-100 dark:hover:bg-white/10"
                           }`}
                         >
                           {type}
@@ -141,7 +141,7 @@ export default function PlanTripPage() {
                         className={`px-4 py-2 rounded-xl text-[10px] border transition-all ${
                           formState.selectedDestinations.includes(dest)
                             ? "bg-primary/20 border-primary text-primary"
-                            : "bg-white/5 border-white/10 text-on-surface/70"
+                            : "bg-stone-50/80 dark:bg-white/5 border-outline dark:border-white/10 text-on-surface/70"
                         }`}
                       >
                         {dest}
@@ -155,7 +155,7 @@ export default function PlanTripPage() {
                   <textarea
                     rows={3} value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none resize-none"
+                    className="w-full bg-stone-50/80 dark:bg-white/5 border border-outline dark:border-white/10 rounded-xl px-5 py-4 text-on-surface focus:border-primary outline-none resize-none"
                     placeholder="Tell us about your preferences..."
                   />
                 </div>

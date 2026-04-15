@@ -46,7 +46,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-white/5 bg-[#131313] pt-24 pb-12 px-6 md:px-12 relative z-10 overflow-hidden">
+    <footer className="w-full border-t border-stone-200 dark:border-white/5 bg-surface pt-24 pb-12 px-6 md:px-12 relative z-10 overflow-hidden transition-colors">
       {/* Decorative Blur */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -mr-48 -mb-48" />
 
@@ -66,7 +66,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all"
+                  className="w-10 h-10 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all"
                   aria-label={social.label}
                 >
                   {social.svg}
@@ -159,7 +159,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-12 border-t border-stone-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-on-surface-variant/40 font-body text-[10px] uppercase tracking-[0.3em]">
             © 2024 Aventure en Abyssinie. Member of Ethiopia Tourism Board.
           </p>

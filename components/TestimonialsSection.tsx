@@ -10,14 +10,14 @@ export default function TestimonialsSection() {
   const featuredTestimonials = testimonials.slice(0, 3);
 
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-stone-950/20">
+    <section className="py-24 px-6 md:px-12 lg:px-24 relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <AnimateOnScroll animation="fade-right">
             <span className="text-primary font-label text-xs md:text-sm tracking-[0.3em] uppercase mb-4 block">
               Traveler Stories
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-[#e5e2e1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-on-surface tracking-tight">
               What they say <br /> <span className="text-primary">about us</span>
             </h2>
           </AnimateOnScroll>
@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
           <AnimateOnScroll animation="fade-left" delay={0.2}>
             <Link 
               href="/testimonials"
-              className="inline-flex items-center gap-2 text-[#e5e2e1] hover:text-primary transition-colors font-bold text-sm uppercase tracking-widest border-b border-primary/30 pb-1"
+              className="inline-flex items-center gap-2 text-on-surface hover:text-primary transition-colors font-bold text-sm uppercase tracking-widest border-b border-primary/30 pb-1"
             >
               View all stories
               <span className="material-symbols-outlined text-sm">arrow_forward</span>

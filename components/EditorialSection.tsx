@@ -54,7 +54,7 @@ const destinations = [
 
 export default function EditorialSection() {
   return (
-    <section id="destinations" className="bg-surface py-32 px-12 overflow-hidden">
+    <section id="destinations" className="py-32 px-12 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-7">

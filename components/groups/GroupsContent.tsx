@@ -12,7 +12,7 @@ export default function GroupsContent() {
   const [activeFilter, setActiveFilter] = useState("Group Trip");
 
   return (
-    <section className="bg-surface py-12 md:py-16 px-4 md:px-12">
+    <section className="py-12 md:py-16 px-4 md:px-12 relative">
       <div className="max-w-7xl mx-auto">
 
         {/* Breadcrumbs & Title */}
@@ -72,10 +72,10 @@ export default function GroupsContent() {
             <AnimateOnScroll key={trip.id} animation="fade-up">
               <Link
                 href={`/groups/${trip.slug}`}
-                className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 flex flex-col md:flex-row group hover:bg-white/[0.08] hover:border-primary/20 transition-all duration-500 cursor-pointer block"
+                className="bg-white/60 dark:bg-white/5 rounded-2xl overflow-hidden border border-outline dark:border-white/10 flex flex-col md:flex-row group hover:bg-white/80 dark:hover:bg-white/[0.08] hover:border-primary/60 dark:hover:border-primary/20 shadow-glass hover:shadow-premium transition-all duration-500 cursor-pointer block"
               >
                 {/* Image collage */}
-                <div className="md:w-[340px] md:shrink-0 h-[220px] md:h-auto relative grid grid-cols-3 grid-rows-2 gap-1 p-1 bg-surface-container">
+                <div className="md:w-[340px] md:shrink-0 h-[220px] md:h-auto relative grid grid-cols-3 grid-rows-2 gap-1 p-1 bg-stone-100 dark:bg-surface-container">
                   <div className="col-span-2 row-span-2 relative overflow-hidden rounded-l-xl">
                     <Image
                       src={trip.images[0]}
@@ -122,10 +122,10 @@ export default function GroupsContent() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-5 mt-5 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-5 mt-5 border-t border-stone-200 dark:border-white/10">
                     <div className="flex -space-x-2">
                       {[...Array(4)].map((_, i) => (
-                        <div key={i} className="w-7 h-7 rounded-full border-2 border-surface bg-surface-container relative overflow-hidden">
+                        <div key={i} className="w-7 h-7 rounded-full border-2 border-surface bg-stone-200 dark:bg-surface-container relative overflow-hidden">
                           <Image
                             src={`/pic${(i % 6) + 1}.jpg`}
                             alt="traveller"
@@ -154,8 +154,8 @@ export default function GroupsContent() {
             {/* Experts */}
             <div>
               <h4 className="font-headline text-xl md:text-2xl text-on-surface mb-6 font-bold border-b border-primary/20 pb-4">Our Local Experts</h4>
-              <div className="flex flex-col sm:flex-row items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-4 border-surface-container">
+              <div className="flex flex-col sm:flex-row items-start gap-5 bg-white/60 dark:bg-white/5 p-6 rounded-2xl border border-outline dark:border-white/10 shadow-glass">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-4 border-stone-100 dark:border-surface-container">
                   <Image src="/aboutus.jpg" alt="Expert" fill sizes="80px" className="object-cover" />
                 </div>
                 <div>
@@ -225,28 +225,28 @@ export default function GroupsContent() {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            <div className="bg-white/[0.03] text-on-surface p-8 rounded-3xl relative overflow-hidden group border border-white/5">
+            <div className="bg-white/60 dark:bg-white/[0.03] text-on-surface p-8 rounded-3xl relative overflow-hidden group border border-outline dark:border-white/5 shadow-glass">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
               <h4 className="font-headline text-xl mb-3 leading-tight text-on-surface">Tailor-made <br /><span className="italic font-normal">for you.</span></h4>
               <p className="text-on-surface-variant font-body text-sm mb-6 leading-relaxed">
                 Don&apos;t find the perfect dates? Our specialists create a custom journey for you.
               </p>
-              <button className="w-full bg-primary text-on-primary py-3.5 rounded-xl font-bold text-sm tracking-widest uppercase hover:scale-[1.02] transition-all">
+              <button className="w-full bg-primary text-on-primary py-3.5 rounded-xl font-bold text-sm tracking-widest uppercase hover:scale-[1.02] transition-all shadow-lg shadow-primary/20">
                 Request a Quote
               </button>
             </div>
 
-            <div className="bg-white/5 p-6 rounded-3xl border border-white/10">
+            <div className="bg-white/60 dark:bg-white/5 p-6 rounded-3xl border border-outline dark:border-white/10 shadow-glass">
               <h4 className="font-headline text-lg text-on-surface mb-5">Need help?</h4>
               <div className="space-y-5">
                 <a href="tel:+251911603027" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
-                  <div className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-stone-100 dark:bg-surface-container flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-sm text-primary">call</span>
                   </div>
                   <span className="text-sm font-label">+251 91 160 3027</span>
                 </a>
                 <div className="flex items-center gap-3 text-on-surface-variant">
-                  <div className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-stone-100 dark:bg-surface-container flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-sm text-primary">chat</span>
                   </div>
                   <span className="text-sm font-label">Live Chat Available</span>

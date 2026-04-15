@@ -5,7 +5,7 @@ import AnimateOnScroll from "./AnimateOnScroll";
 
 export default function AboutSection() {
   return (
-    <section id="about-us" className="bg-surface py-32 px-6 md:px-12 overflow-hidden">
+    <section id="about-us" className="py-32 px-6 md:px-12 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left Column: Image with floating elements */}

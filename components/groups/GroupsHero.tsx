@@ -13,6 +13,7 @@ export default function GroupsHero() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
       </div>
 
       <div className="relative z-10 text-center">

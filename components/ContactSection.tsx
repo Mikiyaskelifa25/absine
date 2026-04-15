@@ -18,7 +18,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-surface py-32 px-6 md:px-12 overflow-hidden">
+    <section id="contact" className="py-32 px-6 md:px-12 overflow-hidden relative">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <AnimateOnScroll animation="fade-right">
           <div>
@@ -57,38 +57,38 @@ export default function ContactSection() {
         </AnimateOnScroll>
 
         <AnimateOnScroll animation="fade-left" delay={0.2}>
-          <div className="relative bg-white/5 backdrop-blur-2xl rounded-[2rem] p-8 md:p-12 border border-white/10">
+          <div className="relative bg-white/80 dark:bg-white/5 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 border border-outline dark:border-white/10 shadow-premium dark:shadow-none transition-all hover:border-primary/50 dark:hover:border-primary/30">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-3">
-                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/50 ml-1">Full Name</label>
+                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/40 ml-1">Full Name</label>
                 <input
                   type="text"
                   required
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none"
+                  className="w-full bg-white/60 dark:bg-white/5 border border-outline dark:border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none"
                   placeholder="John Doe"
                 />
               </div>
               <div className="space-y-3">
-                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/50 ml-1">Email Address</label>
+                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/40 ml-1">Email Address</label>
                 <input
                   type="email"
                   required
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none"
+                  className="w-full bg-white/60 dark:bg-white/5 border border-outline dark:border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none"
                   placeholder="hello@example.com"
                 />
               </div>
               <div className="space-y-3">
-                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/50 ml-1">Message</label>
+                <label className="block font-label text-[10px] uppercase tracking-[0.3em] text-on-surface/40 ml-1">Message</label>
                 <textarea
                   required
                   rows={4}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none resize-none"
+                  className="w-full bg-white/60 dark:bg-white/5 border border-outline dark:border-white/10 rounded-2xl px-6 py-4 text-on-surface focus:border-primary/50 transition-all outline-none resize-none"
                   placeholder="How can we help you?"
                 />
               </div>
